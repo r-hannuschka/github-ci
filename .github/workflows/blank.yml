@@ -9,6 +9,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - uses: actions/wait@v1
+    - uses: ./.github/actions/wait
       with:
         milliseconds: 1000
