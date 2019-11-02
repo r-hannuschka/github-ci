@@ -1,0 +1,23 @@
+{
+  "name": "github-ci",
+  "version": "0.0.1",
+  "description": "learning more about github actions",
+  "main": "index.js",
+  "scripts": {
+    "test": "Niemand hat die absicht etwas zu testen",
+    "build:actions": "npx tsc --build ./src/actions/tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r-hannuschka/github-ci.git"
+  },
+  "author": "Ralf Hannuschka",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/r-hannuschka/github-ci/issues"
+  },
+  "homepage": "https://github.com/r-hannuschka/github-ci#readme",
+  "devDependencies": {
+    "typescript": "3.6.4"
+  }
+}
