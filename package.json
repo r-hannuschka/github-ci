@@ -19,5 +19,9 @@
   "homepage": "https://github.com/r-hannuschka/github-ci#readme",
   "devDependencies": {
     "typescript": "3.6.4"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.0",
+    "@actions/github": "^1.1.0"
   }
 }
