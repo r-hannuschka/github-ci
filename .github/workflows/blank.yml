@@ -12,17 +12,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
 
-    - name: Show Info
-      run: |
-        ls -al .github/actions/wait
-        pwd
-
-    - name: Wait Action Root
-      uses: ./
-      with:
-        milliseconds: 1000
-
     - name: Wait Action github/actions directory
       uses: ./.github/actions/wait
       with:
-        milliseconds: 1000
+        milliseconds: 5000
