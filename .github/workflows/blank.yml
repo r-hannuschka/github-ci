@@ -11,5 +11,5 @@ jobs:
     - uses: actions/checkout@v1
     - name: Wait Action
       uses: ./.github/actions/wait
-        with:
-          milliseconds: 1000
+      with:
+        milliseconds: 1000
