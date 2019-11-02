@@ -17,7 +17,12 @@ jobs:
         ls -al .github/actions/wait
         pwd
 
-    - name: Wait Action
-      uses: ~/github-ci/github-ci/.github/actions/wait/action.yml
+    - name: Wait Action Root
+      uses: ./
+      with:
+        milliseconds: 1000
+
+    - name: Wait Action github/actions directory
+      uses: ./.github/actions/wait
       with:
         milliseconds: 1000

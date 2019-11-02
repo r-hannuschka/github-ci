@@ -1,9 +1,12 @@
 name: 'wait'
 description: 'wait 1 second'
+
 inputs:
-  wait-for-time: # id of input
+  wait-milliseconds: # id of input
     description: 'how long to wait'
     required: true
     default: 1000
+
 runs:
-  main: './action.js'
+  using: 'node12'
+  main: 'action.js'
