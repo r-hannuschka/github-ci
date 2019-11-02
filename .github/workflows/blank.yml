@@ -14,10 +14,10 @@ jobs:
 
     - name: Show Info
       run: |
-        ls -al ./.github/actions/wait
+        ls -al .github/actions/wait
         pwd
 
     - name: Wait Action
-      uses: ./.github/actions/wait
+      uses: .github/actions/wait
       with:
         milliseconds: 1000
