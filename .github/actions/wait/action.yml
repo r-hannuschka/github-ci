@@ -1,5 +1,5 @@
-name 'wait'
-description 'wait 1 second'
+name: 'wait'
+description: 'wait 1 second'
 inputs:
   wait-for-time: # id of input
     description: 'how long to wait'
