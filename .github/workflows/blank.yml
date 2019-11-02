@@ -12,6 +12,9 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
 
+    - name: Show Info
+      run: ls -al ~/.github/actions/wait
+
     - name: Wait Action
       uses: ./
       with:
