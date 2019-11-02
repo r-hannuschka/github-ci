@@ -16,6 +16,6 @@ jobs:
       run: ls -al ./.github/actions/wait
 
     - name: Wait Action
-      uses: ./
+      uses: ./.github/actions/wait
       with:
         milliseconds: 1000
