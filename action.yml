@@ -6,4 +6,4 @@ inputs:
     required: true
     default: 1000
 runs:
-  main: './action.js'
+  main: 'wait.js'

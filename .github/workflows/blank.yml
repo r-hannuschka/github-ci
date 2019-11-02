@@ -18,6 +18,6 @@ jobs:
         pwd
 
     - name: Wait Action
-      uses: .github/actions/wait
+      uses: ./.github/actions/wait/
       with:
         milliseconds: 1000
