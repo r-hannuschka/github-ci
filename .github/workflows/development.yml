@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
 
-  testing:
+  install:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -30,6 +30,22 @@ jobs:
           cd src 
           npm ci
 
+  tests:
+    needs: install
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: npm cache
+        uses: actions/cache@v1
+        with:
+            path: ./src/node_modules
+            key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json')}}-v2
+            restore-keys: |
+              ${{ runner.os }}-node-
+
       - name: protractor e2e tests
         run: |
           cd src
@@ -39,10 +55,3 @@ jobs:
         run: |
           cd src
           npm run lint
-
-  test-e2e:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v1
