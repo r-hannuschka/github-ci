@@ -13,25 +13,10 @@ jobs:
       - name: Setup NodeJS
         uses: actions/setup-node@v1
         with:
-          node-version: '10.x'
+          node-version: '12.8'
 
-      - name: cache node_modules
-        id: npm-cache
-        uses: actions/cache@v1
-        with:
-          path: ~/.npm
-          key: ${{runner.os}}-${{hashFiles('**/package-lock.json')}}
-          restore-keys: |
-            ${{ runner.os }}-node-
+      - name: install dependencies
+        run: cd src && npm install
 
-      - name: install packages
-        if: steps.npm-cache.outputs.cache-hit != 'true'
-        run: cd src && npm ci && cd -
-
-      - name: debugg
-        run: |
-          ls -al
-          ng
-
-      - name: protractor e2e
-        run: cd src && npm run e2e
+      - name: protractor e2e tests
+        run: npm run e2e
