@@ -1,10 +1,10 @@
-name: Testing
+name: Development
 
 on: [push, pull_request]
 
 jobs:
 
-  build:
+  install:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -16,4 +16,40 @@ jobs:
           node-version: '10.x'
 
       - name: install packages
-        run: cd src && npm install
+        run: cd src && npm install && cd -
+
+      - name: persist data
+        uses: actions/upload-arctifact@v1
+        with:
+          name: source
+          path: ./
+
+  protractor-e2e:
+
+    name: protractor e2e testing
+    needs: install
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Source Directory
+        uses: actions/download-artifact@v1
+        with:
+          name: source
+
+      - name: run protractor e2e
+        run: ng e2e
+  
+  unit-tests:
+
+    name: run unit tests
+    needs: install
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Source Directory
+        uses: actions/download-artifact@v1
+        with:
+          name: source
+
+      - name: run unit tests
+        run: ng test
