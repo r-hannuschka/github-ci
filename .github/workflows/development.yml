@@ -16,7 +16,11 @@ jobs:
           node-version: '12.8'
 
       - name: install dependencies
-        run: cd src && npm install
+        run: |
+          cd src 
+          npm install
 
       - name: protractor e2e tests
-        run: npm run e2e
+        run: |
+          cd src
+          npm run e2e
