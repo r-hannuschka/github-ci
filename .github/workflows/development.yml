@@ -15,14 +15,18 @@ jobs:
         with:
           node-version: '10.x'
 
-      - name: install packages
-        run: cd src && npm install && cd -
-
-      - name: persist data
-        uses: actions/upload-artifact@v1
+      - name: cache node_modules
+        id: npm-cache
+        uses: actions/cache@v1
         with:
-          name: source
-          path: ./
+          path: ~/.npm
+          key: ${{runner.os}}-${{hashFiles('./src/package-lock.json')}}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: install packages
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: cd src && npm ci && cd -
 
   protractor-e2e:
 
@@ -31,25 +35,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download Source Directory
-        uses: actions/download-artifact@v1
-        with:
-          name: source
-
-      - name: run protractor e2e
-        run: ng e2e
-  
-  unit-tests:
-
-    name: run unit tests
-    needs: install
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Download Source Directory
-        uses: actions/download-artifact@v1
-        with:
-          name: source
-
-      - name: run unit tests
-        run: ng test
+      - name: Show directory
+        run: ls -al
