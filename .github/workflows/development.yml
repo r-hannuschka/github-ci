@@ -19,7 +19,7 @@ jobs:
         run: cd src && npm install && cd -
 
       - name: persist data
-        uses: actions/upload-arctifact@v1
+        uses: actions/upload-artifact@v1
         with:
           name: source
           path: ./
