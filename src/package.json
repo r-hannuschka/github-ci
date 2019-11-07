@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "webdriver-manager update --standalone false --gecko false --versions.chrome 78.0.3904.70"
   },
   "private": true,
   "dependencies": {
@@ -42,6 +43,7 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.5.3"
+    "typescript": "~3.5.3",
+    "puppeteer-core": "chrome-78"
   }
 }
