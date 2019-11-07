@@ -15,10 +15,19 @@ jobs:
         with:
           node-version: '12.8'
 
+      - name: npm cache
+        uses: actions/cache@v1
+        with:
+            path: ~/.npm
+            key: ${{ runner.os }}-node-${{ hasFiles('**/package-lock.json')}}
+            restore-keys: |
+              ${{ runner.os }}-node-
+
       - name: install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
           cd src 
-          npm install
+          npm ci
 
       - name: protractor e2e tests
         run: |
