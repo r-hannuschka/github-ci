@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
 
-  install:
+  testing:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -28,12 +28,5 @@ jobs:
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: cd src && npm ci && cd -
 
-  protractor-e2e:
-
-    name: protractor e2e testing
-    needs: install
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Show directory
-        run: ls -al
+      - name: protractor e2e
+        run: cd src && npm run e2e
