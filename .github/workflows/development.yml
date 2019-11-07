@@ -34,3 +34,8 @@ jobs:
         run: |
           cd src
           npm run e2e
+
+      - name: lint
+        run: |
+          cd src
+          npm run lint
