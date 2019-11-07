@@ -1,6 +1,6 @@
 name: Testing
 
-on: [push, pull-request]
+on: [push, pull_request]
 
 jobs:
 
@@ -10,5 +10,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
-      - name: npm-install
+      - name: npm_install
         runs: cd src && npm i
