@@ -39,3 +39,9 @@ jobs:
         run: |
           cd src
           npm run lint
+
+  test-e2e:
+    runs-on: ubuntu-latest
+
+    - name: Checkout
+        uses: actions/checkout@v1
