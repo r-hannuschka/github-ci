@@ -17,16 +17,27 @@ module.exports = function (config) {
     },
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, './coverage/github-ci-app'),
-      reports: ['html', 'lcovonly', 'text-summary'],
+      reports: ['text-summary'],
       fixWebpackSourcePaths: true
     },
-    reporters: ['progress', 'kjhtml'],
+    reporters: ['progress'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false,
-    restartOnFileChange: true
+    browsers: ["ChromeHeadless"],
+    customLaunchers: {
+        ChromeHeadless: {
+            base: "Chrome",
+            flags: [
+                "--headless",
+                "--disable-gpu",
+                "--no-sandbox",
+                "--remote-debugging-port=9222"
+            ]
+        }
+    },
+    singleRun: true,
+    restartOnFileChange: false
   });
 };

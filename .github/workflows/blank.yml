@@ -12,7 +12,3 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
 
-    - name: Wait Action github/actions directory
-      uses: ./.github/actions/wait
-      with:
-        milliseconds: 5000
