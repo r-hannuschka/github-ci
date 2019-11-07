@@ -1,0 +1,14 @@
+name: Testing
+
+on: [push, pull-request]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: npm-install
+        runs: cd src && npm i
