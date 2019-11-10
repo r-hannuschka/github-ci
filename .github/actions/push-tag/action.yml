@@ -1,0 +1,12 @@
+name: 'Push Tag'
+description: 'Push Tag to github'
+inputs:
+  tag:  # id of input
+    description: 'new tag which should pushed'
+    required: true
+  token:  # id of input
+    description: 'github token'
+    required: true
+runs:
+  using: 'node12'
+  main: 'main.js'
