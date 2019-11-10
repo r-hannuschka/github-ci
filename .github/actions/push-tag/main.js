@@ -2,9 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const https_1 = require("https");
 const core_1 = require("@actions/core");
+const child_process_1 = require("child_process");
+const commitHash = child_process_1.execSync("git rev-parse HEAD");
 const data = JSON.stringify({
     ref: `refs/tags/${core_1.getInput("tag")}`,
-    sha: "commit"
+    sha: commitHash
 });
 const options = {
     hostname: "api.github.com",
