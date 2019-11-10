@@ -30,7 +30,7 @@ jobs:
 
       - name: Get Next Version
         uses: ./.github/actions/next-version
-        id: updateVersion
+        id: next
 
       - name: Show Next Version
-        run: "echo "the next version is ${{ steps.updateVersion.outputs.nextVersion }}"
+        run: "echo "the next version is ${{ steps.next.outputs.version }}"

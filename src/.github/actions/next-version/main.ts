@@ -18,7 +18,7 @@ const enum VERSION {
 }
 
 // next version
-function createTag(tag: string, version: VERSION) {
+function createNewVersion(tag: string, version: VERSION) {
 
     switch (version) {
         case VERSION.MAJOR:
@@ -69,4 +69,4 @@ const nextVersion = gitLog.split((EOL))
     }, VERSION.PATCH);
 
 // out new version
-setOutput("nextVersion", createTag(lastTag, nextVersion));
+setOutput("version", createNewVersion(lastTag, nextVersion));
