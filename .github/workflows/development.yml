@@ -43,7 +43,7 @@ jobs:
           git config --local user.name "ngx-fileupload-bot"
           git config --local user.email "bot@ngx-fileupload"
           git add ./package.json ./package-lock.json
-          git tag {{ steps.next.outputs.version }}
+          git tag ${{ steps.next.outputs.version }}
 
       - name: push changes
         uses: ad-m/github-push-action@master
