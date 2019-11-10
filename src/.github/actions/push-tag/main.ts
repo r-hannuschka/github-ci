@@ -23,9 +23,6 @@ const options = {
 };
 
 const req = request(options, (res) => {
-    // get status code 401 is forbidden wow
-    // console.log(res.statusCode);
-
     res.on("data", (message) => {
         setOutput("response", message.toString());
     });

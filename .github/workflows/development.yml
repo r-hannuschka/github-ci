@@ -20,15 +20,6 @@ jobs:
         with:
           node-version: '12.8'
 
-      - name: npm cache
-        uses: actions/cache@v1
-        id: npm-cache
-        with:
-            path: ./node_modules
-            key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json')}}
-            restore-keys: |
-              ${{ runner.os }}-node-
-
       - name: install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
@@ -48,7 +39,7 @@ jobs:
           git config user.name "ngx-fileupload-bot"
           git config user.email "bot@ngx-fileupload"
           git add ./package.json ./package-lock.json
-          git commit -m "create new release: ${{ steps.next.outputs.version}}"
+          git commit -m "create new version: ${{ steps.next.outputs.version}}"
 
       - name: push changes
         uses: ad-m/github-push-action@master

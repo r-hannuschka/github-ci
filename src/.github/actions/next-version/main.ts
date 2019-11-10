@@ -35,8 +35,7 @@ let gitLog: string = null;
 
 /** get git log since last tag */
 try {
-    lastTag = execSync(`git describe --tags --abbrev=0`).toString();
-    lastTag = lastTag.replace(/(^\s*|\s*$)/g, "");
+    lastTag = execSync(`git describe --tags --abbrev=0`).toString().trim();
     gitLog  = execSync(`git log ${lastTag}..HEAD --pretty=oneline`).toString();
 } catch (error) {
     gitLog = execSync(`git log --pretty=oneline`).toString();
