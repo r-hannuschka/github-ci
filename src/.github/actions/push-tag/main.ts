@@ -6,7 +6,7 @@ const commitHash = execSync("git rev-parse HEAD");
 
 const data = JSON.stringify({
     ref: `refs/tags/${getInput("tag")}`,
-    sha: commitHash.toString().replace(/(^\s*|\s*$)/, "")
+    sha: commitHash.toString().trim()
 });
 
 const options = {
