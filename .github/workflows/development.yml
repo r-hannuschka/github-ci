@@ -32,5 +32,5 @@ jobs:
         uses: ./.github/actions/next-version
         id: next
 
-      - name: Show Next Version
-        run: "echo the next version is ${{ steps.next.outputs.version }}"
+      - name: Update Version
+        run: npm version ${{ steps.next.outputs.version }}
