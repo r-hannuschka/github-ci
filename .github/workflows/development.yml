@@ -30,28 +30,5 @@ jobs:
           cd src 
           npm ci
 
-  tests:
-    needs: install
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-
-      - name: npm cache
-        uses: actions/cache@v1
-        with:
-            path: ./src/node_modules
-            key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json')}}
-            restore-keys: |
-              ${{ runner.os }}-node-
-
-      - name: protractor e2e tests
-        run: |
-          cd src
-          npm run e2e
-
-      - name: lint
-        run: |
-          cd src
-          npm run lint
+      - name: Get Next Version
+        uses: ./.github/actions/next-version
