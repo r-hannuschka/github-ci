@@ -1,0 +1,9 @@
+name: 'next-version'
+description: 'parse git log for convential commits and returns next version'
+author: 'Ralf Hannuschka'
+outputs:
+  nextVersion:
+    description: next version which was generated
+runs:
+  using: 'node12'
+  main: './main.js'

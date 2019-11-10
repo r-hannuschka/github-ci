@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "webdriver-manager update --standalone false --gecko false --versions.chrome 78.0.3904.70"
+    "postinstall": "webdriver-manager update --standalone false --gecko false --versions.chrome 78.0.3904.70",
+    "build:actions": "tsc --project ./.github"
   },
   "private": true,
   "dependencies": {
@@ -31,7 +32,7 @@
     "@angular/language-service": "~8.2.7",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "~8.9.4",
+    "@types/node": "^8.9.5",
     "codelyzer": "^5.0.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
