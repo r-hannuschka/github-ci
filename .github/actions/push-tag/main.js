@@ -6,7 +6,7 @@ const child_process_1 = require("child_process");
 const commitHash = child_process_1.execSync("git rev-parse HEAD");
 const data = JSON.stringify({
     ref: `refs/tags/${core_1.getInput("tag")}`,
-    sha: commitHash
+    sha: commitHash.toString()
 });
 const options = {
     hostname: "api.github.com",
