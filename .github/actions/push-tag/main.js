@@ -12,7 +12,7 @@ const options = {
     path: "/repos/r-hannuschka/github-ci/git/refs",
     method: "POST",
     headers: {
-        Authorization: `token ${core_1.getInput("githubToken")}`,
+        Authorization: `token ${core_1.getInput("github_token")}`,
         "user-agent": "node.js",
         "Content-Type": "application/json",
         "Content-Length": data.length
