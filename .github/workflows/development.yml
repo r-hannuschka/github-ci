@@ -46,7 +46,7 @@ jobs:
           git add ./package.json ./package-lock.json
           git commit -m "create new release: ${{ steps.next.outputs.version}}"
           git tag ${{ steps.next.outputs.version }}
-          git tags
+          git tag
 
       - name: push changes
         uses: ad-m/github-push-action@master
