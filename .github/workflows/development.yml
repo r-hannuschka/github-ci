@@ -19,16 +19,14 @@ jobs:
         uses: actions/cache@v1
         id: npm-cache
         with:
-            path: ./src/node_modules
+            path: ./node_modules
             key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json')}}
             restore-keys: |
               ${{ runner.os }}-node-
 
       - name: install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
-        run: |
-          cd src 
-          npm ci
+        run: npm ci
 
       - name: Get Next Version
         uses: ./.github/actions/next-version
