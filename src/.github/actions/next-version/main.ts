@@ -20,9 +20,6 @@ const enum VERSION {
 // next version
 function createTag(tag: string, version: VERSION) {
 
-    debug(tag);
-    debug(version.toString());
-
     switch (version) {
         case VERSION.MAJOR:
             return tag.replace(/^(\d+).*/, () => `${parseInt(RegExp.$1, 10) + 1}.0.0`);

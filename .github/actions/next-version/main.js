@@ -13,8 +13,6 @@ const os_1 = require("os");
 const core_1 = require("@actions/core");
 // next version
 function createTag(tag, version) {
-    core_1.debug(tag);
-    core_1.debug(version.toString());
     switch (version) {
         case 2 /* MAJOR */:
             return tag.replace(/^(\d+).*/, () => `${parseInt(RegExp.$1, 10) + 1}.0.0`);
