@@ -12,7 +12,7 @@ const child_process_1 = require("child_process");
 const os_1 = require("os");
 const core_1 = require("@actions/core");
 // next version
-function createTag(tag, version) {
+function createNewVersion(tag, version) {
     switch (version) {
         case 2 /* MAJOR */:
             return tag.replace(/^(\d+).*/, () => `${parseInt(RegExp.$1, 10) + 1}.0.0`);
@@ -58,4 +58,4 @@ const nextVersion = gitLog.split((os_1.EOL))
     return Math.max(version, newVersion);
 }, 0 /* PATCH */);
 // out new version
-core_1.setOutput("nextVersion", createTag(lastTag, nextVersion));
+core_1.setOutput("version", createNewVersion(lastTag, nextVersion));
