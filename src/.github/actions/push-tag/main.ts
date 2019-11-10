@@ -1,9 +1,12 @@
 import { request } from "https";
 import { getInput, setOutput, debug} from "@actions/core";
+import { execSync } from "child_process";
+
+const commitHash = execSync("git rev-parse HEAD");
 
 const data = JSON.stringify({
     ref: `refs/tags/${getInput("tag")}`,
-    sha: "commit"
+    sha: commitHash
 });
 
 const options = {
