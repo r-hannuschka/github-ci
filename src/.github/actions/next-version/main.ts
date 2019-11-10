@@ -21,11 +21,11 @@ const enum VERSION {
 function createTag(tag: string, version: VERSION) {
     switch (version) {
         case VERSION.MAJOR:
-            return tag.replace(/^(\d).*/, () => `${parseInt(RegExp.$1, 10) + 1}.0.0`);
+            return tag.replace(/^(\d+).*/, () => `${parseInt(RegExp.$1, 10) + 1}.0.0`);
         case VERSION.MINOR:
-            return tag.replace(/^(\d.)(\d).*/, () => `\\1${parseInt(RegExp.$2, 10) + 1}.0`);
+            return tag.replace(/^(\d+\.)(\d+).*/, () => `${RegExp.$1}${parseInt(RegExp.$2, 10) + 1}.0`);
         default:
-            return tag.replace(/.*(\d)$/, () => `\\1${parseInt(RegExp.$2, 10) + 1}`);
+            return tag.replace(/(.*)(\d+)$/, () => `${RegExp.$1}${parseInt(RegExp.$2, 10) + 1}`);
     }
 }
 
