@@ -9,7 +9,7 @@
 
 import { execSync } from "child_process";
 import { EOL } from "os";
-import { setOutput } from "@actions/core";
+import { setOutput, debug } from "@actions/core";
 
 const enum VERSION {
     PATCH = 0,
@@ -19,6 +19,10 @@ const enum VERSION {
 
 // next version
 function createTag(tag: string, version: VERSION) {
+
+    debug(tag);
+    debug(version.toString());
+
     switch (version) {
         case VERSION.MAJOR:
             return tag.replace(/^(\d+).*/, () => `${parseInt(RegExp.$1, 10) + 1}.0.0`);

@@ -13,13 +13,15 @@ const os_1 = require("os");
 const core_1 = require("@actions/core");
 // next version
 function createTag(tag, version) {
+    core_1.debug(tag);
+    core_1.debug(version.toString());
     switch (version) {
         case 2 /* MAJOR */:
-            return tag.replace(/^(\d).*/, () => `${parseInt(RegExp.$1, 10) + 1}.0.0`);
+            return tag.replace(/^(\d+).*/, () => `${parseInt(RegExp.$1, 10) + 1}.0.0`);
         case 1 /* MINOR */:
-            return tag.replace(/^(\d.)(\d).*/, () => `\\1${parseInt(RegExp.$2, 10) + 1}.0`);
+            return tag.replace(/^(\d+\.)(\d+).*/, () => `${RegExp.$1}${parseInt(RegExp.$2, 10) + 1}.0`);
         default:
-            return tag.replace(/.*(\d)$/, () => `\\1${parseInt(RegExp.$2, 10) + 1}`);
+            return tag.replace(/(.*)(\d+)$/, () => `${RegExp.$1}${parseInt(RegExp.$2, 10) + 1}`);
     }
 }
 let lastTag = "0.0.0";
