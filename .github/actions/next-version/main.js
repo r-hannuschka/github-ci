@@ -27,8 +27,7 @@ let gitLog = null;
 /** get git log since last tag */
 try {
     lastTag = child_process_1.execSync(`git describe --tags --abbrev=0`).toString();
-    lastTag = lastTag.replace(/(^\s*|\s$)/g, "");
-    console.log(lastTag.length);
+    lastTag = lastTag.replace(/(^\s*|\s*$)/g, "");
     gitLog = child_process_1.execSync(`git log ${lastTag}..HEAD --pretty=oneline`).toString();
 }
 catch (error) {
