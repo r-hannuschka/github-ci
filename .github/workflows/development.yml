@@ -29,8 +29,8 @@ jobs:
         run: npm ci
 
       - name: Get Next Version
-        id: next_version
         uses: ./.github/actions/next-version
+        id: updateVersion
 
-      - name: Show next version
-        run: "echo "the next version is ${{steps.next_version.outputs.nextVersion}}"
+      - name: Show Next Version
+        run: "echo "the next version is ${{ steps.updateVersion.outputs.nextVersion }}"
