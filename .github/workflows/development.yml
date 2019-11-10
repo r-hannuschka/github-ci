@@ -40,9 +40,10 @@ jobs:
 
       - name: commit files
         run: |
-          git config --local user.name "ngx-fileupload-bot"
-          git config --local user.email "bot@ngx-fileupload"
+          git config user.name "ngx-fileupload-bot"
+          git config user.email "bot@ngx-fileupload"
           git add ./package.json ./package-lock.json
+          git commit -m "create new release: ${{ steps.next.outputs.version}}"
           git tag ${{ steps.next.outputs.version }}
 
       - name: push changes
