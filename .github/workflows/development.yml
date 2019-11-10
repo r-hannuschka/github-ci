@@ -36,4 +36,4 @@ jobs:
         run: npm version ${{ steps.next.outputs.version }} --no-git-tag-version
 
       - name: read package json
-        run: tail package.json
+        run: cat package.json
