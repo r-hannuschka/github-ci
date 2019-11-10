@@ -33,7 +33,7 @@ jobs:
         id: next
 
       - name: Update Package Version
-        run: npm version ${{ steps.next.outputs.version }} --no-git-tag-version
+        run: npm version ${{ steps.next.outputs.version }} --no-git-tag-version --allow-same-version
 
       - name: read package json
         run: cat package.json
