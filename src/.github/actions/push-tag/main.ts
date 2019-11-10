@@ -1,5 +1,5 @@
 import { request } from "https";
-import { getInput, setOutput} from "@actions/core";
+import { getInput, setOutput, debug} from "@actions/core";
 
 const data = JSON.stringify({
     ref: `refs/tags/${getInput("tag")}`,
@@ -12,7 +12,7 @@ const options = {
     path: "/repos/r-hannuschka/github-ci/git/refs",
     method: "POST",
     headers: {
-        Authorization: `token ${getInput("githubToken")}`,
+        Authorization: `token ${getInput("github_token")}`,
         "user-agent": "node.js",
         "Content-Type": "application/json",
         "Content-Length": data.length
