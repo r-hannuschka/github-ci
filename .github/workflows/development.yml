@@ -2,6 +2,8 @@ name: ngx-fileupload
 
 on:
   push:
+    branches: 
+      - development
     tags-ignore:
       - '*'
 
