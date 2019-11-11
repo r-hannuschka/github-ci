@@ -1,0 +1,22 @@
+name: ngx-fileupload
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+
+  install:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: install dependencies
+        run: npm ci
+
+      - name: build-page
+        run: |
+          ng build --prod

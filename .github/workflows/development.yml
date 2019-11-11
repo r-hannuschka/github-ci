@@ -9,7 +9,7 @@ on:
 
 jobs:
 
-  install:
+  update-version:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -30,9 +30,6 @@ jobs:
 
       - name: Update Package Version
         run: npm version ${{ steps.next.outputs.version }} --no-git-tag-version --allow-same-version
-
-      - name: read package json
-        run: cat package.json
 
       - name: commit files
         run: |
